@@ -1,0 +1,7 @@
+{
+  "name": "fluxodoro",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
