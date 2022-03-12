@@ -1,0 +1,6 @@
+{
+	"appId": "com.fluxodoro-timer.ionic-angular",
+	"appName": "fluxodoro",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

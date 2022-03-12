@@ -9,8 +9,8 @@ const routes: Routes = [
     component: LoopsPage
   },
   {
-    path: 'loop',
-    loadChildren: () => import('./loop/loop.module').then( m => m.LoopPageModule)
+    path: '/frame/tabs/loop/:loopId',
+    loadChildren: () => import('../frame/loop/loop.module').then(m => m.LoopPageModule)
   }
 ];
 

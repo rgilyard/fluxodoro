@@ -10,27 +10,39 @@ const routes: Routes = [
     component: FramePage,
     children: [
       {
-        path: 'loops',
-        loadChildren: () => import('./loops/loops.module').then( m => m.LoopsPageModule)
+        path: 'loop',
+        loadChildren: () => import('./loop/loop.module').then(m => m.LoopPageModule)
+      },
+      {
+        path: 'loop/:loopId',
+        loadChildren: () => import('./loop/loop.module').then(m => m.LoopPageModule)
       },
       {
         path: 'stats',
         loadChildren: () => import('./stats/stats.module').then( m => m.StatsPageModule)
       },
       {
+        path: 'stats/:loopId',
+        loadChildren: () => import('./stats/stats.module').then(m => m.StatsPageModule)
+      },
+      {
         path: 'timer',
         loadChildren: () => import('./timer/timer.module').then( m => m.TimerPageModule)
       },
       {
+        path: 'timer/:loopId/:timerIndex',
+        loadChildren: () => import('./timer/timer.module').then(m => m.TimerPageModule)
+      },
+      {
         path: '',
-        redirectTo: '/frame/tabs/loops',
+        redirectTo: '/frame/tabs/loop',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/frame/tabs/loops',
+    redirectTo: '/frame/tabs/loop',
     pathMatch: 'full'
   },
 ];

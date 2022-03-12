@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { LoopTimer } from "../../../models/loop-timer.model";
+import { LoopTimer } from "../../models/loop-timer.model";
+import { ActivatedRoute } from '@angular/router';
+import { CurrentService } from '../../services/current.service';
 
 @Component({
   selector: 'app-timer',
@@ -7,34 +9,42 @@ import { LoopTimer } from "../../../models/loop-timer.model";
   styleUrls: ['./timer.page.scss'],
 })
 export class TimerPage implements OnInit {
-  testTime: LoopTimer = {
-    timerName: "Test Timer",
-    initialLength: {
-      hours: 0,
-      minutes: 3,
-      seconds: 30,
-    },
-    adjustment: {
-      hours: 0,
-      minutes: 0,
-      seconds: 0,
-    },
-    finalLength: {
-      hours: 0,
-      minutes: 3,
-      seconds: 30,
-    },
-    alwaysInclude: true,
-    playInterval: 0,
-    vibrate: true,
-    alarmSound: "/path",
-    alarmVolume: 10,
-    autoStart: true,
-  }
+  testTimer: LoopTimer;
 
-  constructor() { }
+  constructor(private activatedRoute: ActivatedRoute, private currentService: CurrentService) {}
 
   ngOnInit() {
+    // Populate test timer with placeholder data
+    this.testTimer = {
+      timerName: "Test Timer",
+      initialLength: {
+        hours: 0,
+        minutes: 3,
+        seconds: 30,
+      },
+      adjustment: {
+        hours: 0,
+        minutes: 0,
+        seconds: 0,
+      },
+      finalLength: {
+        hours: 0,
+        minutes: 3,
+        seconds: 30,
+      },
+      alwaysInclude: true,
+      playInterval: 0,
+      vibrate: true,
+      alarmSound: "/path",
+      alarmVolume: 10,
+      autoStart: true,
+    }
+  }
+
+  ionViewWillEnter() {
+    // When page is navigated to, get loop id and send it to current service.
+    let loopId: any = this.activatedRoute.snapshot.params.loopId;
+    this.currentService.setLoopId(loopId);
   }
 
   ionViewDidEnter() {
@@ -47,7 +57,7 @@ export class TimerPage implements OnInit {
     // }, 1000);
   }
 
-  testTimer() {
+  startTimer() {
     console.log("Test");
     // let seconds = 0;
     // setInterval(function() {

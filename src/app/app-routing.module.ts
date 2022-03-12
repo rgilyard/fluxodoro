@@ -4,8 +4,12 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'frame',
+    redirectTo: 'loops',
     pathMatch: 'full'
+  },
+  {
+    path: 'loops',
+    loadChildren: () => import('./loops/loops.module').then( m => m.LoopsPageModule)
   },
   {
     path: 'frame',
