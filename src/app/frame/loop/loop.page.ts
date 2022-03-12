@@ -14,7 +14,7 @@ export class LoopPage implements OnInit {
   ngOnInit() {
     // Send loopId to Frame Page, so it can be used for the other tabs' urls.
     let loopId: any = this.activatedRoute.snapshot.params.loopId;
-    console.log(loopId);
+    this.emitLoopId.emit(loopId);
   }
 
 }

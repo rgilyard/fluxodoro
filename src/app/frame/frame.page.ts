@@ -1,6 +1,7 @@
 // Frame holds the three tabs that a user can view- loops, timer, and stats
 
 import { Component, OnInit, Output } from '@angular/core';
+import { CurrentService } from '../services/current.service';
 
 @Component({
   selector: 'app-frame',
@@ -10,7 +11,7 @@ import { Component, OnInit, Output } from '@angular/core';
 export class FramePage implements OnInit {
   loopId: string;  // The loopId used for the tabs url to display the correct loop
 
-  constructor() { }
+  constructor(private currentService: CurrentService) { }
 
   ngOnInit() {
   }

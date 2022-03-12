@@ -2,15 +2,15 @@
 
 <ion-tabs>
   <ion-tab-bar slot="bottom">
-    <ion-tab-button tab="loop">
+    <ion-tab-button [tab]="'loop/{{ loopId }}'">
       <ion-label>Loop</ion-label>
       <ion-icon name="repeat-outline"></ion-icon>
     </ion-tab-button>
-    <ion-tab-button tab="timer">
+    <ion-tab-button [tab]="'timer/{{ loopId }}'">
       <ion-label>Timer</ion-label>
       <ion-icon name="stopwatch-outline"></ion-icon>
     </ion-tab-button>
-    <ion-tab-button tab="stats">
+    <ion-tab-button [tab]="'stats/{{ loopId }}'">
       <ion-label>Stats</ion-label>
       <ion-icon name="trending-up-outline"></ion-icon>
     </ion-tab-button>
