@@ -19,7 +19,4 @@ export class LoopsPage implements OnInit {
     // Get the fake user loops data
     this.loopsData = this.loopsDataService.getLoopsData();
   }
-
-
-
 }
