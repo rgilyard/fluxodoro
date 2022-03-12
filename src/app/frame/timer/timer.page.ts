@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoopTimer } from "../../models/loop-timer.model";
+import { ActivatedRoute } from '@angular/router';
+import { CurrentService } from '../../services/current.service';
 
 @Component({
   selector: 'app-timer',
@@ -9,8 +11,7 @@ import { LoopTimer } from "../../models/loop-timer.model";
 export class TimerPage implements OnInit {
   testTimer: LoopTimer;
 
-  constructor() {}
-
+  constructor(private activatedRoute: ActivatedRoute, private currentService: CurrentService) {}
 
   ngOnInit() {
     // Populate test timer with placeholder data
@@ -38,6 +39,12 @@ export class TimerPage implements OnInit {
       alarmVolume: 10,
       autoStart: true,
     }
+  }
+
+  ionViewWillEnter() {
+    // When page is navigated to, get loop id and send it to current service.
+    let loopId: any = this.activatedRoute.snapshot.params.loopId;
+    this.currentService.setLoopId(loopId);
   }
 
   ionViewDidEnter() {

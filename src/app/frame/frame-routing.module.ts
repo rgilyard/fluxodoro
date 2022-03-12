@@ -30,7 +30,7 @@ const routes: Routes = [
         loadChildren: () => import('./timer/timer.module').then( m => m.TimerPageModule)
       },
       {
-        path: 'timer/:loopId',
+        path: 'timer/:loopId/:timerIndex',
         loadChildren: () => import('./timer/timer.module').then(m => m.TimerPageModule)
       },
       {

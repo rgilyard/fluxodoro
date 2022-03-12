@@ -10,10 +10,23 @@ import { CurrentService } from '../services/current.service';
 })
 export class FramePage implements OnInit {
   loopId: string;  // The loopId used for the tabs url to display the correct loop
+  timerIndex: number;
 
   constructor(private currentService: CurrentService) { }
 
   ngOnInit() {
+    // this.activatedRoute.params
+    //       .subscribe(url => console.log('The URL changed to: ' + url));
+  }
+
+  //
+  ionViewDidEnter() {
+    // Get loopId and timerId from Current Service. This was just set from the last navigation
+    this.loopId = this.currentService.getLoopId();
+    this.timerIndex = this.currentService.getTimerIndex();
+  }
+
+  switchTab() {
   }
 
 }

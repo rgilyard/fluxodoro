@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Observable } from "rxjs";
+// import { Observable } from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CurrentService {
-  currentLoopData: Observable<string>;
+  // currentLoopData: Observable<string>;
   loopId: string = '';
-  timerId: string = '';
+  timerIndex: number = 0;
 
   constructor() {
   }
@@ -16,15 +16,15 @@ export class CurrentService {
     this.loopId = newLoopId;
   }
 
-  setTimerId(newTimerId: string) {
-    this.timerId = newTimerId;
+  setTimerId(newTimerIndex: number) {
+    this.timerIndex = newTimerIndex;
   }
 
   getLoopId() {
     return this.loopId;
   }
 
-  getTimerId() {
-    return this.timerId;
+  getTimerIndex() {
+    return this.timerIndex;
   }
 }
