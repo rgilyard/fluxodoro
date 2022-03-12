@@ -10,7 +10,7 @@ const routes: Routes = [
   },
   {
     path: 'loop',
-    loadChildren: () => import('./loop/loop.module').then( m => m.LoopPageModule)
+    loadChildren: () => import('../frame/loop/loop.module').then(m => m.LoopPageModule)
   }
 ];
 

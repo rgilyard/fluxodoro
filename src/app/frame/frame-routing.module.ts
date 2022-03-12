@@ -11,7 +11,7 @@ const routes: Routes = [
     children: [
       {
         path: 'loops',
-        loadChildren: () => import('./loops/loops.module').then( m => m.LoopsPageModule)
+        loadChildren: () => import('../loops/loops.module').then(m => m.LoopsPageModule)
       },
       {
         path: 'stats',
