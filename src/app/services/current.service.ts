@@ -16,7 +16,7 @@ export class CurrentService {
     this.loopId = newLoopId;
   }
 
-  setTimerId(newTimerIndex: number) {
+  setTimerIndex(newTimerIndex: number) {
     this.timerIndex = newTimerIndex;
   }
 

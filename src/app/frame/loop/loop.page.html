@@ -3,10 +3,25 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/loops"></ion-back-button>
     </ion-buttons>
-    <ion-title><h2>loop</h2></ion-title>
+    <ion-title><h1 class="app-header">loop</h1></ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-sm="8" offset-sm="2" text-center>
+        <ion-list>
+          <ion-item
+            *ngFor="let timer of currentLoop.timerList; let i = index"
+            [routerLink]="['/', 'frame', 'tabs', 'timer', currentLoop.loopName, i]">
+            <ion-label>
+              <h2>{{ timer.timerName }}</h2>
+            </ion-label>
+            <ion-icon name="chevron-forward-outline"></ion-icon>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

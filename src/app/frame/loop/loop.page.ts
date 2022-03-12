@@ -1,6 +1,8 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CurrentService } from '../../services/current.service';
+import { LoopsDataService } from '../../services/loops-data.service';
+import { Loop } from "../../models/loop.model";
 
 @Component({
   selector: 'app-loop',
@@ -8,20 +10,21 @@ import { CurrentService } from '../../services/current.service';
   styleUrls: ['./loop.page.scss'],
 })
 export class LoopPage implements OnInit {
-  // @Output() emitLoopId = new EventEmitter<string>(); // The id to be appended to the tab urls to keep the correct loop displayed
+  loopId: string;
+  currentLoop: Loop;
 
-  constructor(private activatedRoute: ActivatedRoute, private currentService: CurrentService) { }
+  constructor(private activatedRoute: ActivatedRoute, private currentService: CurrentService,
+              private loopsDataService: LoopsDataService) { }
 
   ngOnInit() {
-    // Send loopId to Frame Page, so it can be used for the other tabs' urls.
-    // let loopId: any = this.activatedRoute.snapshot.params.loopId;
-    // this.emitLoopId.emit(loopId);
+    this.loopId = this.activatedRoute.snapshot.params.loopId;
+    this.currentLoop = this.loopsDataService.getLoop(this.loopId);
   }
 
   ionViewWillEnter() {
     // When page is navigated to, get loop id and send it to current service.
-    let loopId: any = this.activatedRoute.snapshot.params.loopId;
-    this.currentService.setLoopId(loopId);
+    this.loopId = this.activatedRoute.snapshot.params.loopId;
+    this.currentService.setLoopId(this.loopId);
   }
 
 }

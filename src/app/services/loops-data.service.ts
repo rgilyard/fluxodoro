@@ -123,4 +123,12 @@ export class LoopsDataService {
   getLoopsData() {
     return this.loopsData;
   }
+
+  getLoop(loopName: string) {
+    for (const loop of this.loopsData) {
+      if (loop.loopName === loopName) {
+        return loop;
+      }
+    }
+  }
 }

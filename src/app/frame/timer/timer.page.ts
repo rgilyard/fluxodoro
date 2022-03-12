@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { LoopTimer } from "../../models/loop-timer.model";
 import { ActivatedRoute } from '@angular/router';
 import { CurrentService } from '../../services/current.service';
+import {LoopsDataService} from "../../services/loops-data.service";
+import { Loop } from "../../models/loop.model";
 
 @Component({
   selector: 'app-timer',
@@ -9,42 +11,27 @@ import { CurrentService } from '../../services/current.service';
   styleUrls: ['./timer.page.scss'],
 })
 export class TimerPage implements OnInit {
-  testTimer: LoopTimer;
+  loopId: string;
+  timerIndex: number;
+  currentLoop: Loop;
+  currentTimer: LoopTimer;
 
-  constructor(private activatedRoute: ActivatedRoute, private currentService: CurrentService) {}
+  constructor(private activatedRoute: ActivatedRoute, private currentService: CurrentService,
+              private loopsDataService: LoopsDataService) {}
 
   ngOnInit() {
-    // Populate test timer with placeholder data
-    this.testTimer = {
-      timerName: "Test Timer",
-      initialLength: {
-        hours: 0,
-        minutes: 3,
-        seconds: 30,
-      },
-      adjustment: {
-        hours: 0,
-        minutes: 0,
-        seconds: 0,
-      },
-      finalLength: {
-        hours: 0,
-        minutes: 3,
-        seconds: 30,
-      },
-      alwaysInclude: true,
-      playInterval: 0,
-      vibrate: true,
-      alarmSound: "/path",
-      alarmVolume: 10,
-      autoStart: true,
-    }
+    // Populate data from params
+    this.loopId = this.activatedRoute.snapshot.params.loopId;
+    this.timerIndex = this.activatedRoute.snapshot.params.timerIndex;
+    // this.currentLoop = this.loopsDataService.getLoop(this.loopId);
   }
 
   ionViewWillEnter() {
     // When page is navigated to, get loop id and send it to current service.
-    let loopId: any = this.activatedRoute.snapshot.params.loopId;
-    this.currentService.setLoopId(loopId);
+    this.loopId = this.activatedRoute.snapshot.params.loopId;
+    this.currentService.setLoopId(this.loopId);
+    this.timerIndex = this.activatedRoute.snapshot.params.timerIndex;
+    this.currentService.setTimerIndex(this.timerIndex);
   }
 
   ionViewDidEnter() {
