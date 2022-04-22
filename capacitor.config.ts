@@ -1,7 +1,7 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.fluxodoro-timer.ionic-angular',
+  appId: 'com.fluxodorotimer.ionicangular',
   appName: 'fluxodoro',
   webDir: 'www',
   bundledWebRuntime: false

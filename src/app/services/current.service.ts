@@ -1,3 +1,5 @@
+// The current service keeps track of the current loop and timer so the tabs show the correct information
+
 import { Injectable } from '@angular/core';
 // import { Observable } from "rxjs";
 

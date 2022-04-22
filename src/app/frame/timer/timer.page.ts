@@ -15,6 +15,7 @@ export class TimerPage implements OnInit {
   timerIndex: number;
   currentLoop: Loop;
   currentTimer: LoopTimer;
+  timeInMilli: number;
 
   constructor(private activatedRoute: ActivatedRoute, private currentService: CurrentService,
               private loopsDataService: LoopsDataService) {}
@@ -23,7 +24,6 @@ export class TimerPage implements OnInit {
     // Populate data from params
     this.loopId = this.activatedRoute.snapshot.params.loopId;
     this.timerIndex = this.activatedRoute.snapshot.params.timerIndex;
-    // this.currentLoop = this.loopsDataService.getLoop(this.loopId);
   }
 
   ionViewWillEnter() {
@@ -32,6 +32,13 @@ export class TimerPage implements OnInit {
     this.currentService.setLoopId(this.loopId);
     this.timerIndex = this.activatedRoute.snapshot.params.timerIndex;
     this.currentService.setTimerIndex(this.timerIndex);
+
+    // Set the current Loop and LoopTimer
+    this.currentLoop = this.loopsDataService.getLoop(this.loopId);
+    this.currentTimer = this.loopsDataService.getTimer(this.loopId, this.timerIndex);
+    // Set the timer in milliseconds
+    this.timeInMilli = this.loopsDataService.toMilliseconds(this.currentTimer.initialLength);
+    console.log(this.timeInMilli);
   }
 
   ionViewDidEnter() {

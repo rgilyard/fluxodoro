@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import {Loop} from "../models/loop.model";
+import { Loop } from '../models/loop.model';
+import { LoopTimer } from '../models/loop-timer.model';
+import { HourMinSec } from "../models/hour-min-sec.model";
 
 @Injectable({
   providedIn: 'root'
@@ -124,11 +126,40 @@ export class LoopsDataService {
     return this.loopsData;
   }
 
+  /*
+  * The getLoop functions returns the loop data given a title string
+  * */
   getLoop(loopName: string) {
     for (const loop of this.loopsData) {
       if (loop.loopName === loopName) {
         return loop;
       }
     }
+  }
+
+  addLoop() {
+    // This is interesting. I'll have to figure out forms and stuff or start with a template
+  }
+
+  /*
+  * The getTimer function returns a Timer Data object given the loop's string name and timer index
+  * */
+  getTimer(loopName: string, timerIndex: number) {
+    for (const loop of this.loopsData) {
+      if (loop.loopName === loopName) {
+        return loop.timerList[timerIndex];
+      }
+    }
+  }
+
+  addTimer() {
+    // I'll have to start with a blank timer or something and let people change the settings after naming it
+  }
+
+  toMilliseconds(time: HourMinSec) {
+    // Converts a timer with hourMinSec model to milliseconds
+    let timeInMilliseconds: number;
+    timeInMilliseconds = (time.seconds * 1000) + (time.minutes * 60000) + (time.hours * 3600000);
+    return timeInMilliseconds;
   }
 }
