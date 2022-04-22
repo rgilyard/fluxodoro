@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "889250830686",
+    "project_id": "fluxodoro",
+    "storage_bucket": "fluxodoro.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:889250830686:android:1e2443d571a35fa32c97cf",
+        "android_client_info": {
+          "package_name": "com.fluxodorotimer.ionicangular"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "889250830686-91j392itr4poo1do4r6f4qaiernvdk6e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJn12vxHYIBTv4YWmQnt_h2BNxQ_CQDH0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "889250830686-91j392itr4poo1do4r6f4qaiernvdk6e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title><h2>loops</h2></ion-title>
+    <ion-title><h1 class="app-header">loops</h1></ion-title>
     <ion-buttons slot="primary">
       <ion-button>
         <ion-icon name="add" slot="icon-only"></ion-icon>
@@ -18,7 +18,7 @@
             *ngFor="let loop of loopsData"
             [routerLink]="['/', 'frame', 'tabs', 'loop', loop.loopName]">
             <ion-label>
-              <h1>{{ loop.loopName }}</h1>
+              <h2>{{ loop.loopName }}</h2>
             </ion-label>
             <ion-icon name="chevron-forward-outline"></ion-icon>
           </ion-item>
