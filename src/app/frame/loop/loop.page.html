@@ -17,6 +17,7 @@
             [routerLink]="['/', 'frame', 'tabs', 'timer', currentLoop.loopName, i]">
             <ion-label>
               <h2>{{ timer.timerName }}</h2>
+              <h2>{{ timer.initialLength.hours }}:{{ timer.initialLength.minutes }}:{{ timer.initialLength.seconds }}</h2>
             </ion-label>
             <ion-icon name="chevron-forward-outline"></ion-icon>
           </ion-item>

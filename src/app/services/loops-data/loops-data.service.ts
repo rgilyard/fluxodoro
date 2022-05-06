@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Loop } from '../models/loop.model';
-import { LoopTimer } from '../models/loop-timer.model';
-import { HourMinSec } from "../models/hour-min-sec.model";
+import { Loop } from '../../models/loop.model';
+import { LoopTimer } from '../../models/loop-timer.model';
+import { HourMinSec } from "../../models/hour-min-sec.model";
 
 @Injectable({
   providedIn: 'root'
@@ -17,8 +17,8 @@ export class LoopsDataService {
         timerName: "Math",
         initialLength: {
           hours: 0,
-          minutes: 1,
-          seconds: 30
+          minutes: 0,
+          seconds: 3
         },
         adjustment: {
           hours: 0,

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Loop } from '../models/loop.model';
 import { HourMinSec } from "../models/hour-min-sec.model";
-import { LoopsDataService } from "../services/loops-data.service";
+import { LoopsDataService } from "../services/loops-data/loops-data.service";
 
 @Component({
   selector: 'app-loops',

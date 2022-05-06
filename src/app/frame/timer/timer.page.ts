@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { LoopTimer } from "../../models/loop-timer.model";
+import { LoopTimer } from '../../models/loop-timer.model';
 import { ActivatedRoute } from '@angular/router';
-import { CurrentService } from '../../services/current.service';
-import {LoopsDataService} from "../../services/loops-data.service";
-import { Loop } from "../../models/loop.model";
+import { CurrentService } from '../../services/current/current.service';
+import { LoopsDataService } from '../../services/loops-data/loops-data.service';
+import { Loop } from '../../models/loop.model';
+import { TimerService } from '../../services/timer/timer.service';
 
 @Component({
   selector: 'app-timer',
@@ -18,7 +19,7 @@ export class TimerPage implements OnInit {
   timeInMilli: number;
 
   constructor(private activatedRoute: ActivatedRoute, private currentService: CurrentService,
-              private loopsDataService: LoopsDataService) {}
+              private loopsDataService: LoopsDataService, private timerService: TimerService) {}
 
   ngOnInit() {
     // Populate data from params
@@ -26,49 +27,18 @@ export class TimerPage implements OnInit {
     this.timerIndex = this.activatedRoute.snapshot.params.timerIndex;
   }
 
-  ionViewWillEnter() {
+  async ionViewWillEnter() {
+    // Set the current Loop and LoopTimer
+    this.currentLoop = this.loopsDataService.getLoop(this.loopId);
+    this.currentTimer = this.loopsDataService.getTimer(this.loopId, this.timerIndex);
+
     // When page is navigated to, get loop id and send it to current service.
     this.loopId = this.activatedRoute.snapshot.params.loopId;
     this.currentService.setLoopId(this.loopId);
     this.timerIndex = this.activatedRoute.snapshot.params.timerIndex;
     this.currentService.setTimerIndex(this.timerIndex);
-
-    // Set the current Loop and LoopTimer
-    this.currentLoop = this.loopsDataService.getLoop(this.loopId);
-    this.currentTimer = this.loopsDataService.getTimer(this.loopId, this.timerIndex);
-    // Set the timer in milliseconds
-    this.timeInMilli = this.loopsDataService.toMilliseconds(this.currentTimer.initialLength);
-    console.log(this.timeInMilli);
   }
 
   ionViewDidEnter() {
-    // let start = Date.now();
-    // setInterval(function() {
-    //   let delta = Date.now() - start; // milliseconds elapsed since start
-    //   console.log(Math.floor(delta / 1000)); // in seconds
-    //   // alternatively just show wall clock time:
-    //   // output(new Date().toUTCString());
-    // }, 1000);
-  }
-
-  startTimer() {
-    console.log("Test");
-    // let seconds = 0;
-    // setInterval(function() {
-    //   console.log(seconds);
-    //   seconds++;
-    // }, 1000);
-
-    let intervalId = null;
-    let varCounter = 30;
-    let varName = function() {
-      if(varCounter >= 0) {
-        console.log(varCounter);
-        varCounter--;
-      } else {
-        clearInterval(intervalId);
-      }
-    };
-    intervalId = setInterval(varName, 1000);
   }
 }

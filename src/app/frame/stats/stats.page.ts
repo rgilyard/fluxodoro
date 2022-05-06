@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
-import { CurrentService } from "../../services/current.service";
+import { CurrentService } from "../../services/current/current.service";
 
 @Component({
   selector: 'app-stats',

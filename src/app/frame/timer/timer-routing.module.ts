@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: TimerPage
+  },
+  {
+    path: 'edit-timer',
+    loadChildren: () => import('./edit-timer/edit-timer.module').then( m => m.EditTimerPageModule)
   }
 ];
 

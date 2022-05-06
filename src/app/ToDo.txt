@@ -1,0 +1,14 @@
+Current Working On:
+  Edit button on Timer Page
+
+Next:
+  Save info locally
+  Edit timer list on loop page
+  Edit loops on loops page
+  Reset button in timer
+  Switch to next timer after timer ends
+
+Eventually:
+  Pause on exact time (instead of rounding up the second)
+  Animate timer circle
+  Fix routing (back on timer, maybe keep track of former pages when updating current pages)

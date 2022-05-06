@@ -1,7 +1,7 @@
 // Frame holds the three tabs that a user can view- loops, timer, and stats
 
 import { Component, OnInit, Output } from '@angular/core';
-import { CurrentService } from '../services/current.service';
+import { CurrentService } from '../services/current/current.service';
 
 @Component({
   selector: 'app-frame',
