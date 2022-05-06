@@ -4,18 +4,14 @@
       <ion-back-button defaultHref="/loops"></ion-back-button>
     </ion-buttons>
     <ion-title><h1 class="app-header">timer</h1></ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="end" name="pencil"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <h1 class="app-timer">Timer</h1>
-  <ion-button
-    size="12"
-    size-sm="8"
-    offset-sm="2"
-    text-center
-    class="ion-padding"
-    color="primary"
-    expand="block"
-    (click)="startTimer()">Start</ion-button>
+  <app-time [timer]="currentTimer"></app-time>
 </ion-content>

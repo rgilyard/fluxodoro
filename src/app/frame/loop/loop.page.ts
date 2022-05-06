@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CurrentService } from '../../services/current.service';
-import { LoopsDataService } from '../../services/loops-data.service';
+import { CurrentService } from '../../services/current/current.service';
+import { LoopsDataService } from '../../services/loops-data/loops-data.service';
 import { Loop } from "../../models/loop.model";
 
 @Component({

@@ -1,0 +1,21 @@
+<h1 class="app-timer" *ngIf="isLoaded">{{ timer.timerName }}</h1>
+<div class="timer">
+  <span id="hours"> {{ hoursToEndTime }} </span>H
+  <span id="minutes"> {{ minutesToEndTime }} </span>M
+  <span id="seconds"> {{ secondsToEndTime }} </span>S
+</div>
+<div class="app-center-button">
+  <ion-button slot="" *ngIf="startButton" (click)="startTimer()"
+              class="ion-padding"
+              color="primary"
+              expand="block"
+  >Start</ion-button>
+</div>
+<div class="app-center-button">
+  <ion-button *ngIf="!startButton" (click)="stopTimer()"
+              class="ion-padding"
+              color="primary"
+              expand="block"
+  >Stop</ion-button>
+</div>
+
